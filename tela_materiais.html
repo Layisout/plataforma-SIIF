@@ -5,26 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Materiais - SIIF</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Seu CSS Centralizado -->
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
     <div class="page-container">
 
-        <!-- Navbar Padronizada -->
         <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="container-fluid">
                 <a class="navbar-brand" href="tela_inicial.html">
-                    <img src="" alt="Logo"> <!-- Adicione o src da sua logo -->
-                </a>
+                    <img src="Logo.jpg" alt="Logo"> </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-list text-white fs-1"></i>
                 </button>
@@ -37,63 +31,75 @@
                             <a class="nav-link" href="tela_foruns.html"><i class="bi bi-chat-left-dots-fill"></i> Fóruns</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-megaphone-fill"></i> Divulgação</a>
+                            <a class="nav-link" href="tela_divulgação.html"><i class="bi bi-megaphone-fill"></i> Divulgação</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="materiais.html"><i class="bi bi-file-earmark-text-fill"></i> Materiais</a>
+                            <a class="nav-link active" href="tela_materiais.html"><i class="bi bi-file-earmark-text-fill"></i> Materiais</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> Mapa</a>
+                            <a class="nav-link" href="tela_mapa.html"><i class="bi bi-geo-alt-fill"></i> Mapa</a>
                         </li>
                     </ul>
                     <a href="#" class="profile-link ms-lg-auto">
                         <span>Olá, Fulano de tal</span>
                         <div class="profile-pic">
-                            <img src="https://via.placeholder.com/40" alt="Perfil"> <!-- Manteve a imagem placeholder -->
-                        </div>
+                            <img src="https://via.placeholder.com/40" alt="Perfil"> </div>
                     </a>
                 </div>
             </div>
         </nav>
 
-        <!-- Conteúdo principal branco -->
         <main id="conteudo">
-            <div class="container-fluid"> <!-- Container para adicionar padding interno -->
-                <!-- Painéis Superiores: Filtro e Pesquisa -->
+            <div class="container-fluid">
+
                 <div class="row g-4 mb-4">
-                    <!-- Painel de Filtro -->
+
                     <div class="col-md-5">
-                        <section class="filter-panel card shadow-sm" aria-labelledby="filtro-titulo">
+
+                        <section class="filter-panel card shadow-sm mb-4" aria-labelledby="filtro-titulo">
                             <div class="card-body">
-                                <h2 class="card-title filter-title" id="filtro-titulo">Filtrar Materiais</h2>
+                                <h2 class="card-title filter-title" id="filtro-titulo"><i class="bi bi-funnel-fill"></i> Aplicar Filtros</h2>
                                 <form>
                                     <div class="mb-3">
-                                        <label for="curso" class="form-label">Curso</label>
-                                        <select id="curso" name="curso" class="form-select">
-                                            <option selected>Informática</option>
-                                            <option>Agropecuária</option>
-                                            <option>Alimentos</option>
+                                        <label for="filtro_geral" class="form-label">Filtrar por Categoria</label>
+                                        <select id="filtro_geral" name="filtro_geral" class="form-select">
+                                            <option selected value="">Todas as Categorias</option>
+                                            <optgroup label="Cursos">
+                                                <option value="Informatica">Informática</option>
+                                                <option value="Agropecuaria">Agropecuária</option>
+                                                <option value="Alimentos">Alimentos</option>
+                                            </optgroup>
+                                            <optgroup label="Olimpíadas">
+                                                <option value="ONC">ONC</option>
+                                                <option value="OBMEP">OBMEP</option>
+                                                <option value="OBI">OBI</option>
+                                            </optgroup>
+                                            <optgroup label="Outros">
+                                                <option value="Ementa">Ementa</option>
+                                            </optgroup>
                                         </select>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="olimpiada" class="form-label">Olimpíada</label>
-                                        <select id="olimpiada" name="olimpiada" class="form-select">
-                                            <option selected>ONC</option>
-                                            <option>OBMEP</option>
-                                            <option>OBI</option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary w-100 filter-btn">Aplicar filtro</button>
+                                    <button type="submit" class="btn btn-primary w-100 filter-btn">Aplicar Filtro</button>
                                 </form>
                             </div>
                         </section>
+
+                        <section class="add-material-panel card shadow-sm" aria-labelledby="adicionar-titulo">
+                            <div class="card-body text-center" style="background-color: #386641; border-radius: 15px;">
+                                <h2 class="card-title" id="adicionar-titulo" style="color: white; font-weight: 600; font-size: 1.2rem; margin-bottom: 15px;"><i class="bi bi-plus-circle-fill"></i> Novo Material</h2>
+                                <p class="card-text" style="color: #E7E7E4;">Contribua adicionando um novo material de estudo.</p>
+                                <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#adicionarMaterialModal" style="background-color: #E7E7E4; color: #386641; font-weight: 500;">
+                                    Adicionar Material
+                                </button>
+                            </div>
+                        </section>
+
                     </div>
 
-                    <!-- Painel de Pesquisa -->
                     <div class="col-md-7">
-                        <section class="search-panel-material card shadow-sm" aria-labelledby="pesquisar-titulo">
+                        <section class="search-panel-material card shadow-sm h-100" aria-labelledby="pesquisar-titulo">
                              <div class="card-body">
-                                <h2 class="card-title search-title" id="pesquisar-titulo">Pesquisar Material</h2>
+                                <h2 class="card-title search-title" id="pesquisar-titulo"><i class="bi bi-search"></i> Pesquisar Material</h2>
                                 <form role="search" aria-label="Buscar materiais" class="search-form-material">
                                     <label for="buscar" class="visually-hidden">Buscar materiais</label>
                                     <input type="search" id="buscar" class="form-control search-input-material" placeholder="Digite o nome do material, disciplina, professor..." aria-label="Campo de busca" />
@@ -101,59 +107,60 @@
                                         <i class="bi bi-search"></i>
                                     </button>
                                 </form>
+                                <div class="mt-3">
+                                    <p class="text-muted small">Utilize a busca para encontrar materiais rapidamente pelo nome, professor ou tipo.</p>
+                                </div>
                              </div>
                         </section>
                     </div>
                 </div>
 
-                <!-- Seção de Materiais -->
-                <section class="materials-section" aria-labelledby="materiais-titulo">
-                    <h2 id="materiais-titulo" class="section-title">Materiais Disponíveis</h2>
+                ---
 
-                    <!-- Grupo: Informática -->
+                <section class="materials-section" aria-labelledby="materiais-titulo">
+                    <h2 id="materiais-titulo" class="section-title"><i class="bi bi-list-columns"></i> Materiais Disponíveis</h2>
+
                     <div class="material-group card shadow-sm mb-4">
                         <div class="card-header material-group-header">
-                           <h3><i class="bi bi-laptop"></i> Materiais Informática</h3>
+                            <h3><i class="bi bi-laptop"></i> Materiais Informática</h3>
                         </div>
                         <div class="list-group list-group-flush">
                              <div class="material-item list-group-item">
-                                <h5><i class="bi bi-filetype-py"></i> Python</h5>
-                                <div class="material-subitem d-flex justify-content-between align-items-center">
-                                    <span>Introdução à Programação com Python</span>
-                                    <a href="#" class="btn btn-sm access-button" aria-label="Acessar Introdução à Programação com Python">
-                                        Acessar <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                                <div class="material-subitem d-flex justify-content-between align-items-center">
-                                    <span>Python para Análise de Dados</span>
-                                    <a href="#" class="btn btn-sm access-button" aria-label="Acessar Python para Análise de Dados">
-                                        Acessar <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
+                                 <h5><i class="bi bi-filetype-py"></i> Python</h5>
+                                 <div class="material-subitem d-flex justify-content-between align-items-center">
+                                     <span>Introdução à Programação com Python</span>
+                                     <a href="#" class="btn btn-sm access-button" aria-label="Acessar Introdução à Programação com Python">
+                                         Acessar <i class="bi bi-eye-fill"></i>
+                                     </a>
+                                 </div>
+                                 <div class="material-subitem d-flex justify-content-between align-items-center">
+                                     <span>Python para Análise de Dados</span>
+                                     <a href="#" class="btn btn-sm access-button" aria-label="Acessar Python para Análise de Dados">
+                                         Acessar <i class="bi bi-eye-fill"></i>
+                                     </a>
+                                 </div>
+                             </div>
                              <div class="material-item list-group-item">
-                                <h5><i class="bi bi-filetype-js"></i> JavaScript</h5>
+                                 <h5><i class="bi bi-filetype-js"></i> JavaScript</h5>
                                  <p class="text-muted small fst-italic">Nenhum material adicionado ainda.</p>
-                            </div>
+                             </div>
                         </div>
                     </div>
 
-                     <!-- Grupo: ONC -->
                     <div class="material-group card shadow-sm mb-4">
                         <div class="card-header material-group-header">
-                           <h3><i class="bi bi-trophy"></i> Materiais ONC (Olimpíada Nacional de Ciências)</h3>
+                            <h3><i class="bi bi-trophy"></i> Materiais ONC (Olimpíada Nacional de Ciências)</h3>
                         </div>
                          <div class="list-group list-group-flush">
-                             <div class="material-item list-group-item">
-                                 <p class="text-muted small fst-italic">Nenhum material adicionado ainda.</p>
-                            </div>
-                        </div>
+                              <div class="material-item list-group-item">
+                                  <p class="text-muted small fst-italic">Nenhum material adicionado ainda.</p>
+                             </div>
+                         </div>
                     </div>
 
-                     <!-- Grupo: Ementa -->
-                     <div class="material-group card shadow-sm mb-4">
+                    <div class="material-group card shadow-sm mb-4">
                         <div class="card-header material-group-header">
-                           <h3><i class="bi bi-journal-bookmark-fill"></i> Ementa</h3>
+                            <h3><i class="bi bi-journal-bookmark-fill"></i> Ementa</h3>
                         </div>
                         <div class="list-group list-group-flush">
                             <div class="material-item list-group-item">
@@ -161,22 +168,116 @@
                                 <div class="material-subitem d-flex justify-content-between align-items-center">
                                     <span>Técnico Integrado em Informática - 2024</span>
                                      <a href="#" class="btn btn-sm access-button" aria-label="Acessar Ementa Técnico Integrado em Informática 2024">
-                                        Acessar <i class="bi bi-eye-fill"></i>
-                                    </a>
+                                         Acessar <i class="bi bi-eye-fill"></i>
+                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                 </section>
-            </div><!-- Fim .container-fluid -->
-        </main>
+            </div></main>
     </div>
 
-    <!-- Botão de Ajuda Fixo -->
+    <div class="modal fade" id="adicionarMaterialModal" tabindex="-1" aria-labelledby="adicionarMaterialModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adicionarMaterialModalLabel" style="color: #386641; font-weight: 600;">Adicionar Novo Material</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAdicionarMaterial" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="nomeMaterial" class="form-label">Nome do Material</label>
+                            <input type="text" class="form-control" id="nomeMaterial" name="nomeMaterial" placeholder="Ex: Apostila de Algoritmos" required>
+                            <div class="invalid-feedback">
+                                Por favor, informe o nome do material.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoriaMaterial" class="form-label">Categoria Principal (Curso/Olimpíada)</label>
+                            <select id="categoriaMaterial" name="categoriaMaterial" class="form-select" required>
+                                <option value="" selected disabled>Selecione uma categoria</option>
+                                <optgroup label="Cursos">
+                                    <option value="Informática">Informática</option>
+                                    <option value="Agropecuária">Agropecuária</option>
+                                    <option value="Alimentos">Alimentos</option>
+                                </optgroup>
+                                <optgroup label="Olimpíadas">
+                                    <option value="ONC">ONC</option>
+                                    <option value="OBMEP">OBMEP</option>
+                                    <option value="OBI">OBI</option>
+                                </optgroup>
+                                <option value="Ementa">Ementa</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma categoria.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="linkMaterial" class="form-label">Link para Acesso (URL ou Link do Drive)</label>
+                            <input type="url" class="form-control" id="linkMaterial" name="linkMaterial" placeholder="https://linkdoprofessor.com/material.pdf" required>
+                            <div class="invalid-feedback">
+                                Por favor, insira um link válido para o material.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #E7E7E4; color: #386641; border: 1px solid #dcdcd8;">Cancelar</button>
+                    <button type="submit" id="btnSalvarMaterial" class="btn btn-primary filter-btn">Salvar Material</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <a href="tela_suporte.html" class="help-btn"><i class="bi bi-headset"></i></a>
 
-    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Pega os elementos do formulário e botão
+            const form = document.getElementById('formAdicionarMaterial');
+            const saveButton = document.getElementById('btnSalvarMaterial');
+            const modalElement = document.getElementById('adicionarMaterialModal');
+            const materialModal = new bootstrap.Modal(modalElement); // Inicializa o objeto Modal do Bootstrap
+
+            // 2. Adiciona um listener ao clique do botão Salvar
+            saveButton.addEventListener('click', function(event) {
+                // Impede o envio padrão do formulário
+                event.preventDefault(); 
+
+                // 3. Validação básica de frontend do Bootstrap
+                if (!form.checkValidity()) {
+                    // Adiciona as classes de validação do Bootstrap para mostrar o feedback
+                    form.classList.add('was-validated'); 
+                    return; // Interrompe se a validação falhar
+                }
+                
+                // 4. Se a validação do frontend passar, coleta os dados
+                const nome = document.getElementById('nomeMaterial').value;
+                const categoria = document.getElementById('categoriaMaterial').value;
+                const link = document.getElementById('linkMaterial').value;
+
+                console.log('--- Dados a serem enviados para o Backend ---');
+                console.log('Nome:', nome);
+                console.log('Categoria:', categoria);
+                console.log('Link:', link);
+
+                // ** AQUI É O PONTO DE INTEGRAÇÃO COM O BACKEND **
+                // Você usaria 'fetch()' para enviar os dados para o seu servidor.
+                // Por enquanto, faremos a simulação:
+
+                // 5. Simulação de sucesso (Frontend)
+                alert(`Material "${nome}" (Categoria: ${categoria}) pronto para ser enviado! O servidor (backend) precisa processar e salvar no banco de dados.`);
+
+                // 6. Limpa o formulário e fecha o modal
+                form.reset();
+                form.classList.remove('was-validated'); // Remove a validação visual
+                materialModal.hide(); 
+            });
+        });
+    </script>
 </body>
 </html>
